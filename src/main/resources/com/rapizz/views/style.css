@@ -1,0 +1,113 @@
+.root {
+	-fx-font-family: "Roboto";
+	-fx-font-weight: 500;
+	-fx-font-size: 18px;
+	-fx-color-accent: #6B184E;
+	-fx-color-accent-hovered: #5E1645;
+	-fx-color-background: #FF7F53;
+	-fx-color-background-hovered: #F96A38;
+	-fx-color-text: #9C6DF7;
+}
+
+.search-bar,
+.search-bar:focused {
+	-fx-background-color: -fx-color-background;
+	-fx-text-fill: white;
+	-fx-prompt-text-fill: rgba(255, 255, 255, 0.8);
+	-fx-highlight-fill: -fx-color-accent;
+	-fx-font-size: 22px;
+	-fx-background-radius: 10px;
+	-fx-padding: 15px 25px 15px 55px;
+	-fx-background-image: url("/images/icons/search.png");
+	-fx-background-repeat: no-repeat;
+	-fx-background-position: 15px center;
+	-fx-background-size: 30px;
+}
+
+.search-bar:hover,
+.search-bar:focused {
+	-fx-background-color: -fx-color-background-hovered;
+}
+
+.title {
+	-fx-font-family: "Baloo 2";
+	-fx-font-weight: 700;
+	-fx-font-size: 32px;
+	-fx-text-fill: -fx-color-text;
+}
+
+.notice {
+	-fx-opacity: 0.8;
+}
+
+.pizza-item {
+	-fx-background-color: -fx-color-background;
+	-fx-background-radius: 20px;
+	-fx-text-fill: white;
+}
+
+.pizza-name,
+.pizza-rank,
+.pizza-price {
+	-fx-text-fill: white;
+}
+
+.best-pizza-name,
+.best-pizza-rank {
+	-fx-text-fill: -fx-color-accent;
+}
+
+.best-pizza-price {
+	-fx-text-fill: -fx-color-background;
+}
+
+.pizza-name,
+.best-pizza-name {
+	-fx-font-size: 28px;
+}
+
+.pizza-rank,
+.best-pizza-rank {
+	-fx-font-size: 20px;
+	-fx-opacity: 0.85;
+}
+
+.pizza-price,
+.best-pizza-price {
+	-fx-font-size: 24px;
+}
+
+.icon-button,
+.icon-button:focused {
+	-fx-background-color: transparent;
+}
+
+.icon-button:hover {
+	-fx-scale-x: 1.05;
+	-fx-scale-y: 1.05;
+}
+
+.info-button,
+.info-button:focused {
+	-fx-font-family: "Baloo 2";
+	-fx-font-weight: 700;
+	-fx-font-size: 42px;
+	-fx-padding: -15px 15px;
+	-fx-background-radius: 20px 0;
+	-fx-border-width: 0;
+	-fx-background-color: -fx-color-accent;
+	-fx-text-fill: white;
+}
+
+.orders-button,
+.orders-button:focused {
+	-fx-background-radius: 15px;
+	-fx-padding: 10px;
+	-fx-background-color: -fx-color-accent;
+}
+
+.info-button:hover,
+.orders-button:hover {
+	-fx-background-color: -fx-color-accent-hovered;
+}
+
