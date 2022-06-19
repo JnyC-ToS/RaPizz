@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane onMouseClicked="#onPopupClosed" style="-fx-background-color: rgba(0, 0, 0, 0.25);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+	<VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+		<HBox alignment="CENTER">
+			<StackPane alignment="TOP_RIGHT" onMouseClicked="#consumeEvent" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: white; -fx-background-radius: 25px;">
+				<VBox alignment="CENTER" spacing="15.0" BorderPane.alignment="CENTER">
+					<StackPane.margin>
+						<Insets top="25.0" bottom="10.0" left="50.0" right="50.0" />
+					</StackPane.margin>
+					<Label fx:id="pizzaName" styleClass="title">
+						<VBox.margin>
+							<Insets top="-35.0" />
+						</VBox.margin>
+					</Label>
+					<ImageView fx:id="popupImage" fitHeight="500.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
+						<clip>
+							<Rectangle arcHeight="25.0" arcWidth="25.0" height="500.0" width="500.0" />
+						</clip>
+					</ImageView>
+					<VBox fx:id="pizzaInfo" alignment="CENTER" spacing="15.0">
+						<Label fx:id="popupName" styleClass="title" />
+						<VBox fx:id="ingredients" alignment="CENTER" />
+						<Button mnemonicParsing="false" onAction="#onOrderButtonClicked" styleClass="text-button" text="Commander" />
+					</VBox>
+					<VBox fx:id="confirmOrder" alignment="CENTER" spacing="15.0">
+						<Label text="Taille" styleClass="title" />
+						<HBox fx:id="sizes" alignment="CENTER" spacing="-2.0" />
+						<BorderPane>
+							<left>
+								<Label text="Prix final" styleClass="title" BorderPane.alignment="CENTER" />
+							</left>
+							<right>
+								<Label fx:id="sizedPrice" BorderPane.alignment="CENTER" styleClass="best-pizza-price" />
+							</right>
+							<bottom>
+								<VBox fx:id="notEnoughMoney" BorderPane.alignment="CENTER">
+									<Label text="Vous n'avez pas assez d'argent" styleClass="notice" />
+									<Label text="Créditer mon compte" onMouseClicked="#onCreditAccountClicked" styleClass="text-link" />
+									<Label fx:id="account" text="Solde actuel" styleClass="notice" />
+								</VBox>
+							</bottom>
+						</BorderPane>
+						<Button fx:id="confirmOrderButton" mnemonicParsing="false" onAction="#onConfirmOrderButtonClicked" styleClass="text-button" text="Payer" />
+					</VBox>
+					<padding>
+						<Insets bottom="25.0" left="25.0" right="25.0" top="50.0" />
+					</padding>
+				</VBox>
+				<Button mnemonicParsing="false" onAction="#onPopupClosed" prefWidth="45.0" prefHeight="45.0" styleClass="icon-button">
+					<StackPane.margin>
+						<Insets top="15.0" right="15.0" />
+					</StackPane.margin>
+					<graphic>
+						<ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+							<Image url="@/images/icons/close.png" />
+						</ImageView>
+					</graphic>
+				</Button>
+			</StackPane>
+		</HBox>
+	</VBox>
+</AnchorPane>

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<VBox xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="root" styleClass="best-pizza-item" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
 	<StackPane alignment="BOTTOM_RIGHT" prefHeight="350.0" prefWidth="350.0">
 		<ImageView fx:id="image" fitHeight="350.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
 			<clip>
@@ -19,8 +19,12 @@
 		<Label fx:id="name" styleClass="best-pizza-name" />
 		<Label fx:id="price" styleClass="best-pizza-price" />
         <VBox.margin>
-           <Insets top="15.0" />
+           <Insets top="15.0" right="15.0" left="15.0" />
         </VBox.margin>
 	</HBox>
-	<Label fx:id="rank" styleClass="best-pizza-rank" />
+	<Label fx:id="rank" styleClass="best-pizza-rank">
+		<VBox.margin>
+			<Insets right="15.0" bottom="15.0" left="15.0" />
+		</VBox.margin>
+	</Label>
 </VBox>

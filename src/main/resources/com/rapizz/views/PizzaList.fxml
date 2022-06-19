@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.rapizz.controllers.PizzaList" spacing="20.0">
+	<padding>
+		<Insets bottom="35.0" left="35.0" right="35.0" top="35.0" />
+	</padding>
+	<TextField fx:id="searchBar" promptText="Recherchez votre bonheur" styleClass="search-bar" VBox.vgrow="ALWAYS" />
+	<Label fx:id="bestOffersTitle" styleClass="title" text="Nos meilleures parts" />
+	<HBox fx:id="bestOffersContainer" spacing="40.0" fillHeight="false" />
+	<Label fx:id="pizzasTitle" styleClass="title" text="Nos pizzas">
+		<VBox.margin>
+			<Insets bottom="-25.0" />
+		</VBox.margin>
+	</Label>
+	<Label fx:id="searchTitle" styleClass="title" text="Pizzas trouvées" />
+	<HBox alignment="CENTER">
+		<padding>
+			<Insets top="15.0" />
+		</padding>
+		<ProgressIndicator fx:id="searchLoading" scaleX="2" scaleY="2" style="-fx-progress-color: -fx-color-text;" />
+	</HBox>
+	<GridPane fx:id="pizzasContainer" hgap="35.0" vgap="35.0" />
+	<Label fx:id="searchEmpty" styleClass="notice" text="Aucun résultat">
+		<VBox.margin>
+			<Insets top="-15.0" left="15" />
+		</VBox.margin>
+	</Label>
+</VBox>

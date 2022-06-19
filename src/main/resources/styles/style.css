@@ -1,0 +1,305 @@
+.root {
+	-fx-font-family: "Roboto";
+	-fx-font-weight: 500;
+	-fx-font-size: 18px;
+}
+
+* {
+	-fx-color-accent: #6B184E;
+	-fx-color-accent-hovered: #5E1645;
+	-fx-color-background: #FF7F53;
+	-fx-color-background-hovered: #F96A38;
+	-fx-color-text: #9C6DF7;
+	-fx-color-text-hovered: #8457DA;
+}
+
+.text-button,
+.text-button:focused,
+.search-bar,
+.search-bar:focused {
+	-fx-background-color: -fx-color-background;
+	-fx-text-fill: white;
+	-fx-font-size: 24px;
+	-fx-background-radius: 10px;
+	-fx-padding: 15px 25px;
+}
+
+.search-bar,
+.search-bar:focused {
+	-fx-prompt-text-fill: rgba(255, 255, 255, 0.8);
+	-fx-highlight-fill: -fx-color-accent;
+	-fx-padding: 15px 25px 15px 55px;
+	-fx-background-image: url("/images/icons/search.png");
+	-fx-background-repeat: no-repeat;
+	-fx-background-position: 15px center;
+	-fx-background-size: 30px;
+}
+
+.text-button:hover,
+.search-bar:hover,
+.search-bar:focused {
+	-fx-background-color: -fx-color-background-hovered;
+}
+
+.title {
+	-fx-font-family: "Baloo 2";
+	-fx-font-weight: 700;
+	-fx-font-size: 32px;
+	-fx-text-fill: -fx-color-text;
+}
+
+.notice {
+	-fx-font-size: 18px;
+	-fx-opacity: 0.8;
+}
+
+.error {
+	-fx-font-size: 22px;
+	-fx-text-fill: -fx-color-accent;
+}
+
+.input-field,
+.input-field:focused {
+	-fx-background-color: transparent;
+	-fx-border-style: hidden hidden solid hidden;
+	-fx-border-width: 2px;
+	-fx-border-color: -fx-color-text;
+	-fx-prompt-text-fill: rgba(0, 0, 0, 0.5);
+	-fx-highlight-fill: -fx-color-text;
+	-fx-highlight-text-fill: white;
+	-fx-padding: 10px 5px;
+}
+
+.input-field:focused,
+.input-field:hover {
+	-fx-border-color: -fx-color-text-hovered;
+}
+
+.text-link {
+	-fx-font-size: 18px;
+	-fx-text-fill: -fx-color-background;
+	-fx-cursor: hand;
+}
+
+.text-link:hover {
+	-fx-text-fill: -fx-color-background-hovered;
+}
+
+.text-tag {
+	-fx-font-family: "Baloo 2";
+	-fx-font-weight: 700;
+	-fx-font-size: 20px;
+	-fx-background-radius: 30px;
+	-fx-padding: 0 15px;
+}
+
+.pizza-item {
+	-fx-background-color: -fx-color-background;
+	-fx-background-radius: 20px;
+	-fx-text-fill: white;
+	-fx-cursor: hand;
+}
+
+.pizza-item:hover {
+	-fx-background-color: -fx-color-background-hovered;
+}
+
+.best-pizza-item {
+	-fx-cursor: hand;
+	-fx-background-radius: 20px;
+}
+
+.best-pizza-item:hover {
+	-fx-background-color: rgba(0, 0, 0, 0.15);
+}
+
+.pizza-name,
+.pizza-rank,
+.pizza-price {
+	-fx-text-fill: white;
+}
+
+.best-pizza-name,
+.best-pizza-rank {
+	-fx-text-fill: -fx-color-accent;
+}
+
+.best-pizza-price {
+	-fx-text-fill: -fx-color-background;
+}
+
+.pizza-name,
+.best-pizza-name {
+	-fx-font-size: 28px;
+}
+
+.pizza-rank,
+.best-pizza-rank {
+	-fx-font-size: 20px;
+	-fx-opacity: 0.85;
+}
+
+.pizza-price,
+.best-pizza-price {
+	-fx-font-family: "Baloo 2";
+	-fx-font-weight: 700;
+	-fx-font-size: 24px;
+}
+
+.pizza-ingredient {
+	-fx-font-family: "Roboto";
+	-fx-font-weight: 500;
+	-fx-font-size: 24px;
+}
+
+.pizza-size {
+	-fx-background-color: transparent;
+	-fx-border-color: -fx-color-background;
+	-fx-border-width: 4px;
+	-fx-text-fill: rgba(0, 0, 0, 0.4);
+	-fx-font-family: "Roboto";
+	-fx-font-weight: 500;
+	-fx-font-size: 18px;
+	-fx-cursor: hand;
+	-fx-padding: 10px 15px;
+}
+
+.pizza-size:hover {
+	-fx-border-color: -fx-color-background-hovered;
+	-fx-background-color: rgba(0, 0, 0, 0.1);
+	-fx-text-fill: rgba(0, 0, 0, 0.6);
+}
+
+.pizza-size:focused,
+.pizza-size:selected {
+	-fx-background-color: -fx-color-background;
+	-fx-text-fill: white;
+}
+
+.pizza-size:focused:hover,
+.pizza-size:selected:hover {
+	-fx-background-color: -fx-color-background-hovered;
+}
+
+.order-item {
+	-fx-background-color: -fx-color-text;
+	-fx-background-radius: 20px;
+	-fx-text-fill: white;
+	-fx-cursor: hand;
+}
+
+.order-item:hover {
+	-fx-background-color: -fx-color-text-hovered;
+}
+
+.order-name {
+	-fx-font-family: "Baloo 2";
+	-fx-font-weight: 700;
+	-fx-text-fill: -fx-color-accent;
+	-fx-font-size: 24px;
+	-fx-padding: -10px 0 -7px;
+}
+
+.order-info,
+.order-size {
+	-fx-text-fill: white;
+	-fx-font-size: 18px;
+	-fx-opacity: 0.85;
+	-fx-padding: -3px 0;
+}
+
+.order-price,
+.order-state-pending {
+	-fx-background-color: -fx-color-background;
+	-fx-text-fill: white;
+}
+
+.order-state-delivering {
+	-fx-background-color: white;
+	-fx-text-fill: -fx-color-background;
+}
+
+.order-state-delivered {
+	-fx-background-color: white;
+	-fx-text-fill: -fx-color-text;
+}
+
+.order-label {
+	-fx-font-size: 14px;
+	-fx-opacity: 0.8;
+	-fx-padding: -10px 0 -20px;
+}
+
+.order-value {
+	-fx-font-size: 20px;
+	-fx-text-fill: -fx-color-accent;
+}
+
+.order-pizza-name {
+	-fx-font-size: 24px;
+	-fx-text-fill: -fx-color-accent;
+}
+
+.order-pizza-size {
+	-fx-font-size: 20px;
+	-fx-text-fill: -fx-color-background;
+}
+
+.order-pizza-price {
+	-fx-font-family: "Baloo 2";
+	-fx-font-weight: 700;
+	-fx-font-size: 22px;
+	-fx-text-fill: -fx-color-background;
+}
+
+.order-sized-price {
+	-fx-font-family: "Baloo 2";
+	-fx-font-weight: 700;
+	-fx-font-size: 26px;
+	-fx-text-fill: -fx-color-accent;
+}
+
+.stats-label {
+	-fx-font-size: 14px;
+	-fx-opacity: 0.8;
+	-fx-padding: -10px 0 -20px;
+}
+
+.stats-value {
+	-fx-font-size: 20px;
+	-fx-text-fill: -fx-color-accent;
+}
+
+.icon-button,
+.icon-button:focused {
+	-fx-background-color: transparent;
+}
+
+.icon-button:hover {
+	-fx-scale-x: 1.05;
+	-fx-scale-y: 1.05;
+}
+
+.info-button,
+.info-button:focused {
+	-fx-font-family: "Baloo 2";
+	-fx-font-weight: 700;
+	-fx-font-size: 42px;
+	-fx-padding: -15px 15px;
+	-fx-background-radius: 20px 0;
+	-fx-border-width: 0;
+	-fx-background-color: -fx-color-accent;
+	-fx-text-fill: white;
+}
+
+.orders-button,
+.orders-button:focused {
+	-fx-background-radius: 15px;
+	-fx-padding: 10px;
+	-fx-background-color: -fx-color-accent;
+}
+
+.info-button:hover,
+.orders-button:hover {
+	-fx-background-color: -fx-color-accent-hovered;
+}

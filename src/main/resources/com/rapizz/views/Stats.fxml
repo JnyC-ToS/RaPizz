@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.rapizz.controllers.Stats" spacing="20.0">
+	<padding>
+		<Insets bottom="35.0" left="35.0" right="35.0" top="35.0" />
+	</padding>
+	<Label text="Questions diverses" styleClass="title" />
+	<Label styleClass="stats-label" text="Véhicule(s) n'ayant jamais servi" />
+	<VBox fx:id="unusedVehicules" spacing="-5.0" />
+	<Label styleClass="stats-label" text="Nombre de commande par client" />
+	<VBox fx:id="ordersPerClient" spacing="-5.0" />
+	<Label styleClass="stats-label" text="Moyenne des commandes" />
+	<Label fx:id="ordersAvg" styleClass="stats-value" />
+	<Label styleClass="stats-label" text="Clients ayant commandé plus que la moyenne" />
+	<VBox fx:id="clientsGreaterThanAvg" spacing="-5.0" />
+	<Label text="Statistiques diverses" styleClass="title" />
+	<Label styleClass="stats-label" text="Meilleur client" />
+	<Label fx:id="bestClient" styleClass="stats-value" />
+	<Label styleClass="stats-label" text="Pire livreur" />
+	<Label fx:id="worseDeliveryMan" styleClass="stats-value" />
+	<Label styleClass="stats-label" text="Véhicules utilisés par le pire livreur" />
+	<VBox fx:id="vehiculesUsed" spacing="-5.0" />
+	<Label styleClass="stats-label" text="Pizza la plus demandée" />
+	<Label fx:id="mostWantedPizza" styleClass="stats-value" />
+	<Label styleClass="stats-label" text="Pizza la moins demandée" />
+	<Label fx:id="leastWantedPizza" styleClass="stats-value" />
+	<Label styleClass="stats-label" text="Ingrédient favori" />
+	<Label fx:id="bestIngredient" styleClass="stats-value" />
+</VBox>

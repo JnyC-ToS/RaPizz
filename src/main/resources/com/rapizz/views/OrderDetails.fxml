@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" spacing="20.0">
+	<padding>
+		<Insets bottom="35.0" left="35.0" right="35.0" top="35.0" />
+	</padding>
+	<Label fx:id="orderId" styleClass="title" />
+	<Label styleClass="order-label" text="État" />
+	<Label fx:id="state" styleClass="order-value" />
+	<Label styleClass="order-label" text="Date de commande" />
+	<Label fx:id="dateOrder" styleClass="order-value" />
+	<Label styleClass="order-label" text="Client" />
+	<Label fx:id="client" styleClass="order-value" />
+	<Label fx:id="livreurTitle" styleClass="order-label" text="Livreur" />
+	<Label fx:id="livreur" styleClass="order-value" />
+	<Label fx:id="vehiculeTitle" styleClass="order-label" text="Véhicule" />
+	<Label fx:id="vehicule" styleClass="order-value" />
+	<Label fx:id="dateDeliveryTitle" styleClass="order-label" text="Date de livraison" />
+	<Label fx:id="dateDelivery" styleClass="order-value" />
+	<Label styleClass="title" text="Pizza commandée" />
+	<HBox spacing="20.0">
+		<ImageView fx:id="image" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+			<clip>
+				<Rectangle width="150.0" height="150.0" arcHeight="20.0" arcWidth="20.0" />
+			</clip>
+		</ImageView>
+		<VBox>
+			<Label fx:id="name" styleClass="order-pizza-name" />
+			<Label fx:id="size" styleClass="order-pizza-size" />
+			<Label fx:id="price" styleClass="order-pizza-price" />
+		</VBox>
+	</HBox>
+	<Label styleClass="title" text="Prix payé" />
+	<Label fx:id="sizedPrice" styleClass="order-sized-price" />
+	<Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelOrder" styleClass="text-button" text="Annuler la commande" />
+	<Button mnemonicParsing="false" onAction="#backToOrderList" styleClass="text-button" text="Retour à la liste" />
+</VBox>

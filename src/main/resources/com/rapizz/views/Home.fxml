@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.rapizz.controllers.Home">
+	<center>
+		<VBox alignment="CENTER" maxWidth="500.0" spacing="20.0" BorderPane.alignment="CENTER">
+			<ImageView fx:id="logo" fitHeight="500.0" fitWidth="500.0" preserveRatio="true">
+				<Image url="@/images/logo-full.png" />
+			</ImageView>
+			<Label fx:id="createAccountTitle" text="Créez votre compte" styleClass="title" />
+			<Label fx:id="loginTitle" text="Heureux de vous revoir" styleClass="title" />
+			<TextField fx:id="name" onAction="#submit" promptText="Nom" styleClass="input-field" />
+			<TextField fx:id="email" onAction="#submit" promptText="Adresse email" styleClass="input-field" />
+			<PasswordField fx:id="password" onAction="#submit" promptText="Mot de passe" styleClass="input-field" />
+			<PasswordField fx:id="passwordConfirm" onAction="#submit" promptText="Confirmez votre mot de passe" styleClass="input-field" />
+		</VBox>
+	</center>
+	<bottom>
+		<VBox alignment="CENTER" spacing="15.0" BorderPane.alignment="CENTER">
+			<BorderPane.margin>
+				<Insets top="15.0" bottom="35.0" />
+			</BorderPane.margin>
+			<VBox fx:id="error" spacing="5.0" alignment="CENTER" />
+			<Button fx:id="createAccountButton" onAction="#createAccount" text="Créer un compte" styleClass="text-button" />
+			<Button fx:id="submitButton" onAction="#submit" text="Valider" styleClass="text-button" />
+			<HBox fx:id="mayLoginNotice" alignment="CENTER" spacing="5.0">
+				<Label text="Vous avez déjà un compte ?" />
+				<Label text="Se connecter" onMouseClicked="#login" styleClass="text-link" />
+			</HBox>
+			<HBox fx:id="mayCreateAccountNotice" alignment="CENTER" spacing="5.0">
+				<Label text="Vous n'avez pas de compte ?" />
+				<Label text="Créer un compte" onMouseClicked="#createAccount" styleClass="text-link" />
+			</HBox>
+		</VBox>
+	</bottom>
+</BorderPane>

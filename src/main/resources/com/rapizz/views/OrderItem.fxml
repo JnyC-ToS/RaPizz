@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.Rectangle?>
 
-<StackPane fx:id="root" styleClass="pizza-item" alignment="BOTTOM_RIGHT" prefHeight="150.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="root" styleClass="order-item" prefHeight="150.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
 	<HBox spacing="20.0">
 		<padding>
 			<Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -17,10 +17,16 @@
 			</clip>
 		</ImageView>
 		<VBox>
-			<Label fx:id="name" styleClass="pizza-name" />
-			<Label fx:id="rank" styleClass="pizza-rank" />
-			<Label fx:id="price" styleClass="pizza-price" />
+			<Label fx:id="name" styleClass="order-name" />
+			<Label fx:id="info" styleClass="order-info" />
+			<Label fx:id="size" styleClass="order-size" />
+			<HBox spacing="15.0">
+				<VBox.margin>
+					<Insets top="10.0" />
+				</VBox.margin>
+				<Label fx:id="price" styleClass="order-price,text-tag" />
+				<Label fx:id="state" styleClass="text-tag" />
+			</HBox>
 		</VBox>
 	</HBox>
-	<Button styleClass="info-button" mnemonicParsing="false" onAction="#onInfoButtonClicked" prefHeight="50.0" prefWidth="75.0" text="+" />
-</StackPane>
+</Pane>
