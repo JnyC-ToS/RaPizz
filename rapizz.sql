@@ -157,7 +157,7 @@ END $
 
 CREATE FUNCTION prix_commande(id_commande BIGINT UNSIGNED) RETURNS DECIMAL(5, 2) READS SQL DATA BEGIN
     DECLARE prix_final DECIMAL(5, 2);
-    DECLARE CONTINUE HANDLER FOR NOT FOUND SET prix_final = -1;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET prix_final = 0;
 	SELECT pizza.prix * taille_pizza.modificateur_prix INTO prix_final FROM commande INNER JOIN pizza ON commande.pizza = pizza.id INNER JOIN taille_pizza ON commande.taille = taille_pizza.id WHERE commande.id = id_commande;
     RETURN prix_final;
 END $

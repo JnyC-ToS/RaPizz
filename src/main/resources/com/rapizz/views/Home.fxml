@@ -4,9 +4,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-
 <?import javafx.geometry.Insets?>
+
 <BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.rapizz.controllers.Home">
+	<top>
+		<Label fx:id="back" text="&lt;  RETOUR" styleClass="back-button" onMouseClicked="#goBack" BorderPane.alignment="TOP_LEFT">
+			<BorderPane.margin>
+				<Insets topRightBottomLeft="15.0" />
+			</BorderPane.margin>
+		</Label>
+	</top>
 	<center>
 		<VBox alignment="CENTER" maxWidth="500.0" spacing="20.0" BorderPane.alignment="CENTER">
 			<ImageView fx:id="logo" fitHeight="500.0" fitWidth="500.0" preserveRatio="true">

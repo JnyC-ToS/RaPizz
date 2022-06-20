@@ -91,12 +91,12 @@ public class RaPizz extends Application {
 		mainController.setTopVisible(true);
 	}
 
-	public static boolean isLoggedIn() {
-		return client != null;
-	}
-
 	public static void login(@NotNull Client client) {
 		RaPizz.client = client;
+	}
+
+	public static void logout() {
+		client = null;
 	}
 
 	public static @NotNull Client getClient() {
@@ -158,7 +158,12 @@ public class RaPizz extends Application {
 
 	@Contract("null -> null; !null -> !null")
 	public static @Nullable String formatMoney(@Nullable BigDecimal amount) {
-		return amount == null ? null : moneyFormatter.format(amount) + " €";
+		return formatMoney(amount, true);
+	}
+
+	@Contract("null, _ -> null; !null, _ -> !null")
+	public static @Nullable String formatMoney(@Nullable BigDecimal amount, boolean appendCurrency) {
+		return amount == null ? null : moneyFormatter.format(amount) + (appendCurrency ? " €" : "");
 	}
 
 	@Contract("null -> null; !null -> !null")

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<HBox alignment="CENTER" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.rapizz.controllers.Profile">
+	<VBox maxWidth="500.0" spacing="20.0" alignment="CENTER">
+		<HBox.margin>
+			<Insets top="15.0" bottom="25.0" />
+		</HBox.margin>
+		<Label text="Mon profil" styleClass="title" />
+		<TextField fx:id="name" onAction="#updateProfile" promptText="Nom" styleClass="input-field" />
+		<TextField fx:id="email" onAction="#updateProfile" promptText="Adresse email" styleClass="input-field" />
+		<Label fx:id="updateProfileError" styleClass="error" />
+		<Button onAction="#updateProfile" text="Mettre à jour" styleClass="text-button" />
+		<Label text="Mon crédit" styleClass="title" />
+		<Label text="Solde du compte" styleClass="subtitle" />
+		<StackPane alignment="CENTER_RIGHT">
+			<Label fx:id="account" styleClass="money-box" />
+			<Label text="€" styleClass="money-box-icon" />
+		</StackPane>
+		<Label text="Ajouter de l'argent" styleClass="subtitle" />
+		<StackPane alignment="CENTER_RIGHT">
+			<TextField fx:id="creditAccount" onAction="#updateAccount" promptText="Montant à ajouter" styleClass="money-box" />
+			<Label text="€" styleClass="money-box-icon" />
+		</StackPane>
+		<Label fx:id="creditAccountError" text="Le montant indiqué n'est pas valide" styleClass="error" />
+		<Button fx:id="creditAccountButton" onAction="#updateAccount" text="Créditer mon compte" styleClass="text-button" />
+		<Label fx:id="newAccount" styleClass="notice" />
+		<Label text="Mes points de fidélité" styleClass="subtitle" />
+		<Label fx:id="loyalty" styleClass="loyalty-score" />
+		<Label text="10 points = une pizza gratuite !" />
+		<Label text="Historique de paiement" styleClass="title" />
+		<GridPane fx:id="history">
+			<columnConstraints>
+				<ColumnConstraints />
+				<ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" />
+			</columnConstraints>
+		</GridPane>
+		<Label fx:id="emptyHistory" styleClass="notice" text="Aucune opération">
+			<VBox.margin>
+				<Insets top="-15.0" />
+			</VBox.margin>
+		</Label>
+		<Button onAction="#logout" text="Se déconnecter" styleClass="text-button" />
+	</VBox>
+</HBox>

@@ -27,6 +27,8 @@ public class Home implements Initializable {
 	private final @NotNull ObjectProperty<State> state = new SimpleObjectProperty<>(State.HOME);
 
 	@FXML
+	private Label back;
+	@FXML
 	private ImageView logo;
 	@FXML
 	private Label createAccountTitle;
@@ -53,11 +55,12 @@ public class Home implements Initializable {
 
 	@Override
 	public void initialize(@NotNull URL location, @NotNull ResourceBundle resources) {
-		RaPizz.bindManagedToVisible(this.logo, this.createAccountTitle, this.loginTitle, this.name, this.email, this.password, this.passwordConfirm, this.createAccountButton, this.submitButton, this.error, this.mayLoginNotice, this.mayCreateAccountNotice);
+		RaPizz.bindManagedToVisible(this.back, this.logo, this.createAccountTitle, this.loginTitle, this.name, this.email, this.password, this.passwordConfirm, this.createAccountButton, this.submitButton, this.error, this.mayLoginNotice, this.mayCreateAccountNotice);
 		BooleanBinding isHome = this.state.isEqualTo(State.HOME);
 		BooleanBinding isCreatingAccount = this.state.isEqualTo(State.CREATING_ACCOUNT);
 		BooleanBinding isLoggingIn = this.state.isEqualTo(State.LOGGING_IN);
 		BooleanBinding isNotHome = isHome.not();
+		this.back.visibleProperty().bind(isNotHome);
 		this.logo.visibleProperty().bind(isHome);
 		this.name.visibleProperty().bind(isCreatingAccount);
 		this.email.visibleProperty().bind(isNotHome);
@@ -74,13 +77,27 @@ public class Home implements Initializable {
 	}
 
 	@FXML
-	private void createAccount(Event event) {
-		this.state.set(State.CREATING_ACCOUNT);
+	private void goBack(@NotNull MouseEvent event) {
+		this.state.set(State.HOME);
+		this.error.getChildren().clear();
+		this.name.setText("");
+		this.email.setText("");
+		this.password.setText("");
+		this.passwordConfirm.setText("");
 	}
 
 	@FXML
-	private void login(MouseEvent event) {
+	private void createAccount(@NotNull Event event) {
+		this.state.set(State.CREATING_ACCOUNT);
+		this.name.requestFocus();
+		this.error.getChildren().clear();
+	}
+
+	@FXML
+	private void login(@NotNull MouseEvent event) {
 		this.state.set(State.LOGGING_IN);
+		this.email.requestFocus();
+		this.error.getChildren().clear();
 	}
 
 	@FXML
@@ -92,16 +109,19 @@ public class Home implements Initializable {
 					yield null;
 				if (!this.email.getText().matches("[^@]*@[^@]*\\.[^@.]{2,}")) {
 					this.appendError("L'adresse mail est invalide");
+					this.email.requestFocus();
 					yield null;
 				}
 				if (!this.password.getText().equals(this.passwordConfirm.getText())) {
 					this.passwordConfirm.setText("");
 					this.appendError("Les deux mots de passe ne correspondent pas");
+					this.passwordConfirm.requestFocus();
 					yield null;
 				}
 				Client duplicate = RaPizz.DB.getClient(this.email.getText());
 				if (duplicate != null) {
 					this.appendError("Adresse mail déjà utilisée");
+					this.email.requestFocus();
 					yield null;
 				}
 				yield RaPizz.DB.createClient(this.name.getText(), this.email.getText(), this.password.getText());
@@ -112,11 +132,13 @@ public class Home implements Initializable {
 				Client match = RaPizz.DB.getClient(this.email.getText());
 				if (match == null) {
 					this.appendError("Adresse mail inconnue");
+					this.email.requestFocus();
 					yield null;
 				}
 				if (!match.checkPassword(this.password.getText())) {
 					this.password.setText("");
 					this.appendError("Mot de passe invalide");
+					this.password.requestFocus();
 					yield null;
 				}
 				yield match;

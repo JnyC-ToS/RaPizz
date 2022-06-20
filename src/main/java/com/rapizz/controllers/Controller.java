@@ -1,8 +1,11 @@
 package com.rapizz.controllers;
 
 import com.rapizz.RaPizz;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.ScrollEvent;
@@ -10,11 +13,22 @@ import javafx.scene.layout.BorderPane;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class Controller {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class Controller implements Initializable {
 	@FXML
 	private BorderPane top;
 	@FXML
 	private ScrollPane scrollPane;
+	@FXML
+	private BorderPane loader;
+
+	@Override
+	public void initialize(@NotNull URL location, @NotNull ResourceBundle resources) {
+		RaPizz.bindManagedToVisible(this.top, this.loader);
+		this.loader.setVisible(false);
+	}
 
 	public void setTopVisible(boolean topVisible) {
 		this.top.setVisible(topVisible);
@@ -24,9 +38,24 @@ public class Controller {
 		Node oldContent = this.scrollPane.getContent();
 		if (oldContent != null)
 			oldContent.setOnScroll(null);
-		Node content = RaPizz.loadFXML(fxml, controller);
-		this.scrollPane.setContent(content);
-		content.setOnScroll(this::scrollEvent);
+		this.loader.setVisible(true);
+		Task<Node> loadTask = new Task<>() {
+			@Override
+			public Node call() {
+				return RaPizz.loadFXML(fxml, controller);
+			}
+		};
+		loadTask.setOnSucceeded(event -> {
+			Node content = loadTask.getValue();
+			this.scrollPane.setContent(content);
+			this.loader.setVisible(false);
+			content.setOnScroll(this::scrollEvent);
+		});
+		loadTask.setOnFailed(e -> {
+			loadTask.getException().printStackTrace();
+			Platform.exit();
+		});
+		new Thread(loadTask).start();
 	}
 
 	// Fix insanely slow default scroll pane
@@ -47,7 +76,7 @@ public class Controller {
 
 	@FXML
 	private void onProfileButtonClicked(@NotNull ActionEvent event) {
-		// TODO open profile page
+		RaPizz.setPage("Profil", "Profile");
 	}
 
 	@FXML

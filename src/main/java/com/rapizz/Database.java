@@ -199,6 +199,18 @@ public class Database {
 		}
 	}
 
+	public void updateClient(@NotNull Client client) {
+		try (PreparedStatement preparedStatement = this.connection.prepareStatement("UPDATE client SET nom = ?, email = ?, compte = ? WHERE id = ?")) {
+			preparedStatement.setString(1, client.getNom());
+			preparedStatement.setString(2, client.getEmail().toLowerCase());
+			preparedStatement.setBigDecimal(3, client.getCompte());
+			preparedStatement.setLong(4, client.getId());
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public @Nullable Order createOrder(long clientId, short pizzaId, byte sizeId, boolean gratuite) {
 		try (PreparedStatement preparedStatement = this.connection.prepareStatement("INSERT INTO commande (client, pizza, taille, gratuite) VALUE (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
 			preparedStatement.setLong(1, clientId);

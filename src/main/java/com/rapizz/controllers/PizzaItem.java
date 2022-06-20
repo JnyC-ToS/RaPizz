@@ -200,6 +200,7 @@ public class PizzaItem implements Initializable {
 			if (order != null) {
 				if (order.prix().signum() != -1)
 					client.setCompte(client.getCompte().subtract(order.prix()));
+				client.clearCachedHistorique();
 				RaPizz.setPage("Commande #" + order.id(), "OrderDetails", new OrderDetails(order));
 				this.main.infoPopup.hide();
 			}
@@ -207,7 +208,8 @@ public class PizzaItem implements Initializable {
 
 		@FXML
 		private void onCreditAccountClicked(@NotNull MouseEvent event) {
-			// TODO open profile page
+			RaPizz.setPage("Profil", "Profile");
+			this.main.infoPopup.hide();
 		}
 	}
 }

@@ -5,64 +5,80 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
-	<top>
-		<BorderPane fx:id="top" prefHeight="100.0" BorderPane.alignment="CENTER">
-			<left>
-				<ImageView fitHeight="70.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-					<Image url="@/images/logo-text.png" />
-				</ImageView>
-			</left>
-			<right>
-				<HBox alignment="CENTER" spacing="35.0" BorderPane.alignment="CENTER">
-					<Button mnemonicParsing="false" onAction="#onHomeButtonClicked" prefHeight="45.0" prefWidth="45.0" styleClass="icon-button">
-						<graphic>
-							<ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-								<Image url="@/images/icons/home.png" />
-							</ImageView>
-						</graphic>
-						<tooltip>
-							<Tooltip text="Accueil" />
-						</tooltip>
-					</Button>
-					<Button mnemonicParsing="false" onAction="#onStatsButtonClicked" prefHeight="45.0" prefWidth="45.0" styleClass="icon-button">
-						<graphic>
-							<ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-								<Image url="@/images/icons/stats.png" />
-							</ImageView>
-						</graphic>
-						<tooltip>
-							<Tooltip text="Statistiques" />
-						</tooltip>
-					</Button>
-					<Button mnemonicParsing="false" onAction="#onProfileButtonClicked" prefHeight="45.0" prefWidth="45.0" styleClass="icon-button">
-						<graphic>
-							<ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-								<Image url="@/images/icons/profile.png" />
-							</ImageView>
-						</graphic>
-						<tooltip>
-							<Tooltip text="Profil" />
-						</tooltip>
-					</Button>
-					<Button mnemonicParsing="false" onAction="#onOrdersButtonClicked" prefHeight="45.0" prefWidth="45.0" styleClass="orders-button">
-						<graphic>
-							<ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-								<Image url="@/images/icons/orders.png" />
-							</ImageView>
-						</graphic>
-						<tooltip>
-							<Tooltip text="Commandes" />
-						</tooltip>
-					</Button>
-				</HBox>
-			</right>
-			<BorderPane.margin>
-				<Insets left="35.0" right="35.0" />
-			</BorderPane.margin>
-		</BorderPane>
-	</top>
-	<center>
-		<ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" BorderPane.alignment="CENTER" />
-	</center>
-</BorderPane>
+<StackPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+	<BorderPane>
+		<top>
+			<BorderPane fx:id="top" prefHeight="100.0" BorderPane.alignment="CENTER">
+				<left>
+					<ImageView fitHeight="70.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+						<Image url="@/images/logo-text.png" />
+					</ImageView>
+				</left>
+				<right>
+					<HBox alignment="CENTER" spacing="35.0" BorderPane.alignment="CENTER">
+						<Button mnemonicParsing="false" onAction="#onHomeButtonClicked" prefHeight="45.0" prefWidth="45.0" styleClass="icon-button">
+							<graphic>
+								<ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+									<Image url="@/images/icons/home.png" />
+								</ImageView>
+							</graphic>
+							<tooltip>
+								<Tooltip text="Accueil" />
+							</tooltip>
+						</Button>
+						<Button mnemonicParsing="false" onAction="#onStatsButtonClicked" prefHeight="45.0" prefWidth="45.0" styleClass="icon-button">
+							<graphic>
+								<ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+									<Image url="@/images/icons/stats.png" />
+								</ImageView>
+							</graphic>
+							<tooltip>
+								<Tooltip text="Statistiques" />
+							</tooltip>
+						</Button>
+						<Button mnemonicParsing="false" onAction="#onProfileButtonClicked" prefHeight="45.0" prefWidth="45.0" styleClass="icon-button">
+							<graphic>
+								<ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+									<Image url="@/images/icons/profile.png" />
+								</ImageView>
+							</graphic>
+							<tooltip>
+								<Tooltip text="Profil" />
+							</tooltip>
+						</Button>
+						<Button mnemonicParsing="false" onAction="#onOrdersButtonClicked" prefHeight="45.0" prefWidth="45.0" styleClass="orders-button">
+							<graphic>
+								<ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+									<Image url="@/images/icons/orders.png" />
+								</ImageView>
+							</graphic>
+							<tooltip>
+								<Tooltip text="Commandes" />
+							</tooltip>
+						</Button>
+					</HBox>
+				</right>
+				<BorderPane.margin>
+					<Insets left="35.0" right="35.0" />
+				</BorderPane.margin>
+			</BorderPane>
+		</top>
+		<center>
+			<ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" BorderPane.alignment="CENTER" />
+		</center>
+	</BorderPane>
+	<BorderPane fx:id="loader" style="-fx-background-color: -fx-color-text;">
+		<center>
+			<ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+				<Image url="@/images/logo-white.png" />
+			</ImageView>
+		</center>
+		<bottom>
+			<ProgressIndicator scaleX="2" scaleY="2" style="-fx-progress-color: white;" BorderPane.alignment="BOTTOM_CENTER">
+				<BorderPane.margin>
+					<Insets bottom="150.0" />
+				</BorderPane.margin>
+			</ProgressIndicator>
+		</bottom>
+	</BorderPane>
+</StackPane>

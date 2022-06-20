@@ -104,6 +104,7 @@ public class OrderDetails implements Initializable {
 			client.setCompteurFidelite((short) Math.max(client.getCompteurFidelite() - 1, 0));
 			client.setCompte(client.getCompte().add(this.order.prix()));
 		}
+		client.clearCachedHistorique();
 		RaPizz.setPage("Commandes", "OrderList");
 	}
 }

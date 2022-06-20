@@ -11,8 +11,8 @@ import java.util.List;
 
 public class Client {
 	private final long id;
-	private final @NotNull String nom;
-	private final @NotNull String email;
+	private @NotNull String nom;
+	private @NotNull String email;
 	private final byte @NotNull[] motDePasse;
 	private @NotNull BigDecimal compte;
 	private short compteurFidelite;
@@ -35,8 +35,16 @@ public class Client {
 		return this.nom;
 	}
 
+	public void setNom(@NotNull String nom) {
+		this.nom = nom;
+	}
+
 	public @NotNull String getEmail() {
 		return this.email;
+	}
+
+	public void setEmail(@NotNull String email) {
+		this.email = email;
 	}
 
 	public boolean checkPassword(@NotNull String password) {
@@ -63,5 +71,9 @@ public class Client {
 		if (this.historique == null)
 			this.historique = RaPizz.DB.listHistoriqueOfClient(this.id);
 		return this.historique;
+	}
+
+	public void clearCachedHistorique() {
+		this.historique = null;
 	}
 }

@@ -40,7 +40,7 @@ public class OrderItem implements Initializable {
 		this.name.setText(this.order.pizza().getNom());
 		this.info.setText("Commande #" + this.order.id() + " - " + RaPizz.formatDate(this.order.dataCommande()));
 		this.size.setText("Taille : " + this.order.taille().nom());
-		this.price.setText(RaPizz.formatMoney(this.order.prix()));
+		this.price.setText(this.order.gratuite() ? "Gratuite" : this.order.enRetard() ? "En retard" : RaPizz.formatMoney(this.order.prix()));
 		this.state.setText(this.order.state().toString());
 		this.state.getStyleClass().add("order-state-" + this.order.state().name().toLowerCase());
 		this.root.setOnMouseClicked(event -> RaPizz.setPage("Commande #" + this.order.id(), "OrderDetails", new OrderDetails(this.order)));
